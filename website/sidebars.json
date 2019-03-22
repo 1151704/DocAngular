@@ -1,5 +1,9 @@
 {
   "docs": {
-
+      "Empezando": ["angular"],
+      "Empezar a usar": ["node", "instalacion", "creacion"],
+      "Editor": ["visual", "atom", "stackblitz"],
+      "Componentes": ["componente"],
+      "Tutorial": ["tutorial", "hero", "list-hero", "detail-hero","servicio","routing"]
   }
 }

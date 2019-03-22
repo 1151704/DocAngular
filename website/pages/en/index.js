@@ -14,155 +14,141 @@ const Container = CompLibrary.Container;
 const GridBlock = CompLibrary.GridBlock;
 
 class HomeSplash extends React.Component {
-  render() {
-    const {siteConfig, language = ''} = this.props;
-    const {baseUrl, docsUrl} = siteConfig;
-    const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
-    const langPart = `${language ? `${language}/` : ''}`;
-    const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
+    render() {
+        const {siteConfig, language = ''} = this.props;
+        const {baseUrl, docsUrl} = siteConfig;
+        const docsPart = `${docsUrl ? `${docsUrl}/` : ''}`;
+        const langPart = `${language ? `${language}/` : ''}`;
+        const docUrl = doc => `${baseUrl}${docsPart}${langPart}${doc}`;
 
-    const SplashContainer = props => (
-      <div className="homeContainer">
-        <div className="homeSplashFade">
-          <div className="wrapper homeWrapper">{props.children}</div>
-        </div>
-      </div>
-    );
+        const SplashContainer = props => (
+            <div className="homeContainer">
+                <div className="homeSplashFade">
+                    <div className="wrapper homeWrapper">{props.children}</div>
+                </div>
+            </div>
+        );
 
-    const Logo = props => (
-      <div className="projectLogo">
-        <img src={props.img_src} alt="Project Logo" />
-      </div>
-    );
+        const Logo = props => (
+            <div className="projectLogo">
+                <img src={props.img_src} alt="Project Logo"/>
+            </div>
+        );
 
-    const ProjectTitle = () => (
-      <h2 className="projectTitle">
-        {siteConfig.title}
-        <small>{siteConfig.tagline}</small>
-      </h2>
-    );
+        const ProjectTitle = () => (
+            <h2 className="projectTitle">
+                {siteConfig.title}
+                <small>{siteConfig.tagline}</small>
+            </h2>
+        );
 
-    const PromoSection = props => (
-      <div className="section promoSection">
-        <div className="promoRow">
-          <div className="pluginRowBlock">{props.children}</div>
-        </div>
-      </div>
-    );
+        const PromoSection = props => (
+            <div className="section promoSection">
+                <div className="promoRow">
+                    <div className="pluginRowBlock">{props.children}</div>
+                </div>
+            </div>
+        );
 
-    const Button = props => (
-      <div className="pluginWrapper buttonWrapper">
-        <a className="button" href={props.href} target={props.target}>
-          {props.children}
-        </a>
-      </div>
-    );
+        const Button = props => (
+            <div className="pluginWrapper buttonWrapper">
+                <a className="button" href={props.href} target={props.target}>
+                    {props.children}
+                </a>
+            </div>
+        );
 
-    return (
-      <SplashContainer>
-        <Logo img_src={`${baseUrl}img/angular.svg`} />
-        <div className="inner">
-          <ProjectTitle siteConfig={siteConfig} />
-          {/*<PromoSection>*/}
-            {/*/!*<Button href="#showcase">ShowCase</Button>*!/*/}
-            {/*/!*<Button href={docUrl('doc1.html')}>Example </Button>*!/*/}
-            {/*/!*<Button href={docUrl('doc2.html')}>Example Link 2</Button>*!/*/}
-          {/*</PromoSection>*/}
-        </div>
-      </SplashContainer>
-    );
-  }
+        return (
+            <SplashContainer>
+                <Logo img_src={`${baseUrl}img/angular.svg`}/>
+                <div className="inner">
+                    <ProjectTitle siteConfig={siteConfig}/>
+                    <PromoSection>
+                    <Button href="#documentado">Autores</Button>
+                    <Button href={docUrl('angular.html')}>Documentación</Button>
+                    </PromoSection>
+                </div>
+            </SplashContainer>
+        );
+    }
 }
 
 class Index extends React.Component {
-  render() {
-    const {config: siteConfig, language = ''} = this.props;
-    const {baseUrl} = siteConfig;
+    render() {
+        const {config: siteConfig, language = ''} = this.props;
+        const {baseUrl} = siteConfig;
 
-    const Block = props => (
-      <Container
-        padding={['bottom', 'top']}
-        id={props.id}
-        background={props.background}>
-        <GridBlock
-          align="center"
-          contents={props.children}
-          layout={props.layout}
-        />
-      </Container>
-    );
+        const Caracteristicas = () => (
+            <GridBlock
+                align="center"
+                layout="oneColumn"
+                className="grid-block--column"
+                contents={
+                [
+                    {
+                        content: 'Aprenda una forma de crear aplicaciones con Angular y reutilizar su código y habilidades para crear aplicaciones para cualquier destino de implementación. Para web, web móvil, móvil nativo y escritorio nativo.',
+                        image: `${baseUrl}img/responsive-framework.svg`,
+                        imageAlign: 'left',
+                        title: '\n' +
+                            'DESARROLLAR EN TODAS LAS PLATAFORMAS',
+                    },
+                    {
+                        content: 'Consiga la velocidad máxima posible en la plataforma web hoy, y continúe, a través de los trabajadores web y la representación del lado del servidor.\n' +
+                            '\n' +
+                            'Angular te pone en control sobre la escalabilidad. Satisface requerimientos enormes de data construyendo modelos de data en RxJS, Immutable.js o algún otro modelo-de-empuje.',
+                        image: `${baseUrl}img/speed-performance.svg`,
+                        imageAlign: 'right',
+                        title: 'VELOCIDAD Y RENDIMIENTO',
+                    },
+                    {
+                        content: 'Construye características rápidamente con plantillas simples y declarativas. Amplíe el idioma de la plantilla con sus propios componentes y utilice una amplia gama de componentes existentes. Obtenga ayuda y comentarios inmediatos específicos para Angular con casi todos los IDE y editores. Todo esto se une para que pueda concentrarse en crear aplicaciones sorprendentes en lugar de intentar que el código funcione.',
+                        image: `${baseUrl}img/joyful-development.svg`,
+                        imageAlign: 'left',
+                        title: 'HERRAMIENTAS INCREIBLES',
+                    }, {
+                        content: 'Desde el prototipo hasta la implementación global, Angular ofrece la productividad y la infraestructura escalable que admite las aplicaciones más grandes de Google.',
+                        image: `${baseUrl}img/loved-by-millions.svg`,
+                        imageAlign: 'right',
+                        title: 'AMADO POR MILLONES',
+                    }
+                ]}
+                />
+        );
 
-    const Features = () => (
-      <Block layout="oneColumn">
-        {[
-          {
-            content: 'Learn one way to build applications with Angular and reuse your code and abilities to build apps for any deployment target. For web, mobile web, native mobile and native desktop.',
-            image: `https://angular.io/generated/images/marketing/home/responsive-framework.svg`,
-            imageAlign: 'left',
-            title: 'DEVELOP ACROSS ALL PLATFORMS',
-          },
-          {
-            content: 'Achieve the maximum speed possible on the Web Platform today, and take it further, via Web Workers and server-side rendering.\n' +
-                '\n' +
-                'Angular puts you in control over scalability. Meet huge data requirements by building data models on RxJS, Immutable.js or another push-model.',
-            image: `https://angular.io/generated/images/marketing/home/speed-performance.svg`,
-            imageAlign: 'right',
-            title: 'SPEED & PERFORMANCE',
-          },
-            {
-            content: 'Build features quickly with simple, declarative templates. Extend the template language with your own components and use a wide array of existing components. Get immediate Angular-specific help and feedback with nearly every IDE and editor. All this comes together so you can focus on building amazing apps rather than trying to make the code work.',
-            image: `https://angular.io/generated/images/marketing/home/joyful-development.svg`,
-            imageAlign: 'left',
-            title: 'INCREDIBLE TOOLING',
-          },  {
-            content: 'From prototype through global deployment, Angular delivers the productivity and scalable infrastructure that supports Google\'s largest applications.',
-            image: `https://angular.io/generated/images/marketing/home/loved-by-millions.svg`,
-            imageAlign: 'right',
-            title: 'LOVED BY MILLIONS',
-          },
-        ]}
-      </Block>
-    );
+        const Documentacion = () => {
+            if ((siteConfig.users || []).length === 0) {
+                return null;
+            }
 
-    const Showcase = () => {
-      if ((siteConfig.users || []).length === 0) {
-        return null;
-      }
+            const showcase = siteConfig.users
+                .filter(user => user.pinned)
+                .map(user => (
+                    <a href={user.infoLink} key={user.infoLink}>
+                        <img src={user.image} alt={user.caption} title={user.caption}/>
+                    </a>
+                ));
 
-      const showcase = siteConfig.users
-        .filter(user => user.pinned)
-        .map(user => (
-          <a href={user.infoLink} key={user.infoLink}>
-            <img src={user.image} alt={user.caption} title={user.caption} />
-          </a>
-        ));
+            const pageUrl = page => baseUrl + (language ? `${language}/` : '') + page;
 
-      const pageUrl = page => baseUrl + (language ? `${language}/` : '') + page;
+            return (
+                <div className="productShowcaseSection paddingBottom" id="documentado">
+                    <h2>Documentación</h2>
+                    <p>Este proyecto fue documentado por </p>
+                    <div className="logos">{showcase}</div>
+                </div>
+            );
+        };
 
-      return (
-        <div className="productShowcaseSection paddingBottom" id="showcase">
-          <h2>Who is Using This?</h2>
-          <p>This project is used by all these people</p>
-          <div className="logos">{showcase}</div>
-          <div className="more-users">
-            <a className="button" href={pageUrl('users.html')}>
-              More {siteConfig.title} Users
-            </a>
-          </div>
-        </div>
-      );
-    };
-
-    return (
-      <div>
-        <HomeSplash siteConfig={siteConfig} language={language} />
-        <div className="mainContainer">
-            <Features />
-            <Showcase />
-        </div>
-      </div>
-    );
-  }
+        return (
+            <div>
+                <HomeSplash siteConfig={siteConfig} language={language}/>
+                <div className="mainContainer">
+                    <Caracteristicas/>
+                    <Documentacion />
+                </div>
+            </div>
+        );
+    }
 }
 
 module.exports = Index;

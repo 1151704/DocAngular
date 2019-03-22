@@ -21,18 +21,18 @@ function Help(props) {
 
   const supportLinks = [
     {
-      content: `Learn more using the [documentation on this site.](${docUrl(
-        'doc1.html',
+      content: `Obtenga más información utilizando la [documentación de este sitio.](${docUrl(
+        'angular',
       )})`,
-      title: 'Browse Docs',
+      title: 'Examinar documentación',
     },
     {
-      content: 'Ask questions about the documentation and project',
-      title: 'Join the community',
+      content: 'Mira todas las caracteristicas de Angular',
+      title: '¡Que me ofrece Angular?',
     },
     {
-      content: "Find out what's new with this project",
-      title: 'Stay up to date',
+      content: "Visita nuestro sitio [web oficial](https://angular.io) y mantente al día con todos nuestros servicios",
+      title: 'Estar al día',
     },
   ];
 
@@ -41,9 +41,9 @@ function Help(props) {
       <Container className="mainContainer documentContainer postContainer">
         <div className="post">
           <header className="postHeader">
-            <h1>Need help?</h1>
+            <h1>¿Necesitas ayuda?</h1>
           </header>
-          <p>This project is maintained by a dedicated group of people.</p>
+          <p>Este proyecto fue creado en la clase de Programación Web, en la Universidad Francisco de Paula Santander</p>
           <GridBlock contents={supportLinks} layout="threeColumn" />
         </div>
       </Container>
